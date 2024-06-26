@@ -1,0 +1,33 @@
+<h2>Restaurants Data</h2>
+<table id="restaurant-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Borough</th>
+            <th>Cuisine</th>
+            <th>Address</th>
+            <th>Grades</th>
+            <th>Restaurant ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each restaurants}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.borough}}</td>
+            <td>{{this.cuisine}}</td>
+            <td>{{this.address.building}} {{this.address.street}}, {{this.address.zipcode}}</td>
+            <td>
+                <ul>
+                    {{#each this.grades}}
+                    <li>{{this.date}}: {{this.grade}} ({{this.score}})</li>
+                    {{/each}}
+                </ul>
+            </td>
+            <td>{{this.restaurant_id}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{{pagination currentPage totalPages}}}

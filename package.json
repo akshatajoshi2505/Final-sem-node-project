@@ -1,0 +1,32 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshatajoshi2505/Final-sem-node-project.git"
+  },
+  "author": "Akshata Joshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akshatajoshi2505/Final-sem-node-project/issues"
+  },
+  "homepage": "https://github.com/akshatajoshi2505/Final-sem-node-project#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
+    "express-validator": "^7.0.1",
+    "handlebars": "^4.7.8",
+    "mongoose": "^8.3.0",
+    "nodemon": "^3.1.0",
+    "uuid": "^9.0.1"
+  }
+}

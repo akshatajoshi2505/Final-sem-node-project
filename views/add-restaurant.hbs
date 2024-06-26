@@ -1,0 +1,33 @@
+<!-- add-restaurant.hbs -->
+<fieldset> Add Restaurant Form
+<form action="/restaurants/add" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+    <label for="borough">Borough:</label>
+    <input type="text" id="borough" name="borough" required>
+    <br><br>
+    <label for="cuisine">Cuisine:</label>
+    <input type="text" id="cuisine" name="cuisine" required>
+    <br><br>
+    <label for="building">Building:</label>
+    <input type="text" id="building" name="address.building">
+    <br><br>
+    <label for="street">Street:</label>
+    <input type="text" id="street" name="address.street">
+    <br><br>
+    <label for="zipcode">Zipcode:</label>
+    <input type="text" id="zipcode" name="address.zipcode">
+    <br><br>
+    <label for="gradeDate">Grade Date:</label>
+    <input type="date" id="gradeDate" name="grades[0].date">
+    <br><br>
+    <label for="grade">Grade:</label>
+    <input type="text" id="grade" name="grades[0].grade">
+    <br><br>
+    <label for="score">Score:</label>
+    <input type="number" id="score" name="grades[0].score">
+    <br><br>
+    <button type="submit">Add Restaurant</button>
+</form>
+</fieldset>

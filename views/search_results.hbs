@@ -1,0 +1,39 @@
+<!-- Add this form to your HTML template -->
+<form action="/search" method="GET">
+  <input type="text" name="q" placeholder="Search restaurant by name">
+  <button type="submit">Search</button>
+</form>
+
+<table id="restaurant-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Borough</th>
+            <th>Cuisine</th>
+            <th>Address</th>
+            <th>Grades</th>
+            <th>Restaurant ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each searchResultsObj}}
+        <tr>
+            <td>{{#if this.name}}{{this.name}}{{else}}N/A{{/if}}</td>
+            <td>{{#if this.borough}}{{this.borough}}{{else}}N/A{{/if}}</td>
+            <td>{{#if this.cuisine}}{{this.cuisine}}{{else}}N/A{{/if}}</td>
+            <td>{{#if this.address}}{{this.address.building}} {{this.address.street}}, {{this.address.zipcode}}{{else}}N/A{{/if}}</td>
+            <td>
+                <ul>
+                    {{#each this.grades}}
+                    <li>{{this.date}}: {{this.grade}} ({{this.score}})</li>
+                    {{/each}}
+                </ul>
+            </td>
+            <td>{{#if this.restaurant_id}}{{this.restaurant_id}}{{else}}N/A{{/if}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+{{{paginationSearch currentPage totalPages}}}

@@ -1,0 +1,66 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Data</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Data</h1>
+    <table id="restaurant-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Borough</th>
+                <th>Cuisine</th>
+                <th>Address</th>
+                <th>Grades</th>
+                <th>Restaurant ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        // Fetch restaurant data from server and populate the table
+        fetch('/restaurants')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.querySelector('#restaurant-table tbody');
+                data.forEach(restaurant => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${restaurant.name}</td>
+                        <td>${restaurant.borough}</td>
+                        <td>${restaurant.cuisine}</td>
+                        <td>${restaurant.address.building} ${restaurant.address.street}, ${restaurant.address.zipcode}</td>
+                        <td>${restaurant.grades.map(grade => `${grade.date}: ${grade.grade}(${grade.score})`).join('<br>')}</td>
+                        <td>${restaurant.restaurant_id}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>
